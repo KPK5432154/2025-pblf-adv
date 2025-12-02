@@ -9,6 +9,7 @@ typedef struct {
     int health;//健康值
     int social;//社交属性
     int press;//压力
+    int intelligent;//智力
 }status;
 ////二。修改属性的函数,返回值均为void,统一命名为"add/reduce"+"_"+"属性名"，返回值为void,参数为status和改变量change
 //举两个例子,其他我就不写了
@@ -20,23 +21,26 @@ extern void reduce_energy(status s,int change){
     s.energy-=change;
 }
 */
- void add_energy(status s,int change);
- void reduce_energy(status s,int change);
+void add_energy(status *s, int change);
+void reduce_energy(status *s, int change);
 
- void add_health(status sta,int change);
- void reduce_health(status sta,int change);
+void add_health(status *s, int change);
+void reduce_health(status *s, int change);
 
- void add_social(status sta,int change);
- void reduce_social(status sta,int change);
+void add_social(status *s, int change);
+void reduce_social(status *s, int change);
 
- void add_press(status sta,int change);
- void reduce_press(status sta,int change);
+void add_press(status *s, int change);
+void reduce_press(status *s, int change);
 
+void add_intelligent(status *s, int change);
+void reduce_intelligent(status *s, int change);
 ////三。获取属性的函数,返回值为int：
 int get_energy(status s);
 int get_health(status s);
-int get_socail(status s);
+int get_social(status s);
 int get_press(status s);
+int get_intelligent(status s);
 
 ////四。画面切换，音频播放(UI负责)，需把EasyX中的API包装好
  void play_music(int i); //播放音乐，代表音频编号
